@@ -5,19 +5,26 @@ class Experience extends Component {
   render() {
     const experience = this.props.experience;
     return (
-      <div>
+      <div className="section-container">
+        <hr />
+        <h1 className="section-header">Experience</h1>
+        <hr />
         {experience.map((item, index) => {
           return (
-            <div key={index}>
-              <h2>{item.title}</h2>
-              <h3>{item.company}</h3>
-              <div>
-                <h3>{item.location}</h3>
-                <h3>
+            <div className="section-body" key={index}>
+              <div className="education-experience-title">
+                <h2>{item.title}</h2>
+                <h2>
                   {item.startDate} - {item.endDate}
-                </h3>
+                </h2>
               </div>
-              <h3>{item.duties}</h3>
+              <div>
+                <h3>{item.company}</h3>
+                <h3>{item.location}</h3>
+              </div>
+              <ul>
+                <li>{item.duties}</li>
+              </ul>
             </div>
           );
         })}

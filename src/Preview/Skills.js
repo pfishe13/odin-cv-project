@@ -9,11 +9,17 @@ class Skills extends Component {
   render() {
     const skillArray = this.props.skills;
     return (
-      <ul>
-        {skillArray.map((skill, index) => {
-          return <li key={index}>{skill}</li>;
-        })}
-      </ul>
+      <div className="section-container">
+        <hr />
+        <h1 className="section-header">Skills</h1>
+        <hr />
+
+        <ul>
+          {skillArray.map((skill, index) => {
+            return <li key={index}>{skill}</li>;
+          })}
+        </ul>
+      </div>
     );
   }
 }

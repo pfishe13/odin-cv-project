@@ -9,32 +9,32 @@ class App extends Component {
 
     this.state = {
       profile: {
-        name: 'Parker',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        email: '',
-        phone: '',
+        name: 'Parker Fisher',
+        address: '951 Newport Rd.',
+        city: 'Akron',
+        state: 'OH',
+        zip: '44303',
+        email: 'pfishe@kent.edu',
+        phone: '3308424030',
       },
       education: [
         {
-          school: '',
-          location: '',
-          degree: '',
-          gpa: '',
-          yearStarted: '',
-          yearEnded: '',
+          school: 'Kent State University',
+          location: 'Kent, OH',
+          degree: 'Computer Science',
+          gpa: '3.92',
+          yearStarted: '2018',
+          yearEnded: '2022',
         },
       ],
       experience: [
         {
           title: 'Sales Assistant',
-          company: '',
-          startDate: '',
-          endDate: '',
-          duties: '',
-          location: '',
+          company: 'Fat Ts',
+          startDate: 'May 2020',
+          endDate: 'Present',
+          duties: 'Bake Cookies',
+          location: 'Akron, OH',
         },
       ],
       skills: [],
@@ -141,12 +141,14 @@ class App extends Component {
           />
         </div>
         <div className="right">
-          <LivePreview
-            profile={this.state.profile}
-            education={this.state.education}
-            experience={this.state.experience}
-            skills={this.state.skills}
-          />
+          <div className="resume">
+            <LivePreview
+              profile={this.state.profile}
+              education={this.state.education}
+              experience={this.state.experience}
+              skills={this.state.skills}
+            />
+          </div>
         </div>
       </div>
     );

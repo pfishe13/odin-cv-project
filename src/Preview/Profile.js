@@ -8,16 +8,13 @@ class Profile extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="profile-container">
         <h1>{this.props.profile.name}</h1>
-        <h3>
-          {this.props.profile.address} {this.props.profile.city},
-          {this.props.profile.state} {this.props.profile.zip}
-        </h3>
-        <h3>
-          {this.props.profile.email}
-          {this.props.profile.phone}
-        </h3>
+        <h4>
+          {this.props.profile.address} {this.props.profile.city},{' '}
+          {this.props.profile.state} {this.props.profile.zip} |{}{' '}
+          {this.props.profile.email} | {this.props.profile.phone}
+        </h4>
       </div>
     );
   }
