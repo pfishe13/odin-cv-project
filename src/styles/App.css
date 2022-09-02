@@ -32,11 +32,10 @@ hr {
 
 .main-container {
   display: flex;
-  height: 100vh;
 }
 
 .left {
-  width: 40%;
+  height: 100vh;
   background-color: lightblue;
 }
 
@@ -48,7 +47,6 @@ hr {
 }
 
 .right {
-  width: 60%;
   background-color: lightcyan;
   display: flex;
   justify-content: center;
@@ -57,9 +55,11 @@ hr {
 .resume {
   background-color: white;
   box-sizing: border-box;
+  margin: 20px;
   padding: 0.5in;
   height: 11in;
   width: 8.5in;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .profile-container {

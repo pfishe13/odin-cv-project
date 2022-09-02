@@ -33,7 +33,7 @@ class App extends Component {
           company: 'Fat Ts',
           startDate: 'May 2020',
           endDate: 'Present',
-          duties: 'Bake Cookies',
+          duties: ['Bake Cookies'],
           location: 'Akron, OH',
         },
       ],
@@ -84,7 +84,14 @@ class App extends Component {
 
   handleExperienceChange = (e, index) => {
     const attributeToChange = e.target.name;
-    const valueToChange = e.target.value;
+    let valueToChange = e.target.value;
+    let dutiesArray;
+    if (attributeToChange === 'duties') {
+      dutiesArray = valueToChange.split(',');
+      valueToChange = [...dutiesArray];
+    }
+
+    console.log(dutiesArray);
 
     this.setState((prevState) => {
       const newExperience = prevState.experience.map((item, id) => {
@@ -108,7 +115,7 @@ class App extends Component {
           company: '',
           startDate: '',
           endDate: '',
-          duties: '',
+          duties: [''],
           location: '',
         },
       ],

@@ -23,7 +23,9 @@ class Experience extends Component {
                 <h3>{item.location}</h3>
               </div>
               <ul>
-                <li>{item.duties}</li>
+                {item.duties.map((duty, index) => {
+                  return <li key={index}>{duty}</li>;
+                })}
               </ul>
             </div>
           );
