@@ -21,10 +21,10 @@ class App extends Component {
         {
           school: 'Kent State University',
           location: 'Kent, OH',
-          degree: 'Computer Science',
-          gpa: '3.92',
-          yearStarted: '2018',
-          yearEnded: '2022',
+          degree: '',
+          gpa: '',
+          yearStarted: '',
+          yearEnded: '',
         },
       ],
       experience: [

@@ -2,6 +2,7 @@ body {
   font-size: 16px;
   margin: 0;
   font-weight: 400;
+  background-color: #52a092;
 }
 
 * {
@@ -22,32 +23,60 @@ h3 {
   font-style: italic;
 }
 
-hr {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 1px;
-  background-color: rgb(0, 0, 0);
-}
-
 .main-container {
   display: flex;
+  justify-content: space-between;
 }
 
+/* //////////////////////// */
+/* LEFT SIDE (EDIT SIDE) */
 .left {
+  box-sizing: border-box;
+  padding: 20px;
   height: 100vh;
-  background-color: lightblue;
+  color: #f6f2ec;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.left > div {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+.directions {
+  margin-bottom: 40px;
 }
 
+.edit-containers > div {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #f6f2ec;
+  border-radius: 8px;
+}
+
+.edit-containers > div > h1 {
+  margin-top: 0;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  padding: 4px 8px;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid #f6f2ec;
+  border-radius: 4px;
+  display: block;
+}
+
+label {
+  padding-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+/* //////////////////////// */
+/* RIGHT SIDE (RESUME SIDE) */
 .right {
-  background-color: lightcyan;
   display: flex;
   justify-content: center;
 }
@@ -60,6 +89,14 @@ hr {
   height: 11in;
   width: 8.5in;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+hr {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
 }
 
 .profile-container {

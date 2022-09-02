@@ -5,6 +5,7 @@ class EditProfile extends Component {
   render() {
     return (
       <div>
+        <h1>Personal Information</h1>
         <form>
           <label>
             Name:

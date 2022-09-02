@@ -12,24 +12,33 @@ class Edit extends Component {
   render() {
     return (
       <div>
-        <EditProfile
-          profile={this.props.profile}
-          handleProfileChange={this.props.handleProfileChange}
-        />
-        <EditEducation
-          education={this.props.education}
-          handleEducationChange={this.props.handleEducationChange}
-          handleAddEducation={this.props.handleAddEducation}
-        />
-        <EditExperience
-          experience={this.props.experience}
-          handleExperienceChange={this.props.handleExperienceChange}
-          handleAddExperience={this.props.handleAddExperience}
-        />
-        <EditSkills
-          skills={this.props.skills}
-          handleSkillsChange={this.props.handleSkillsChange}
-        />
+        <div className="directions">
+          <h1>Build your Resume</h1>
+          <h4>
+            Enter your information below. The data will automatically populate
+            the resume on the right.
+          </h4>
+        </div>
+        <div className="edit-containers">
+          <EditProfile
+            profile={this.props.profile}
+            handleProfileChange={this.props.handleProfileChange}
+          />
+          <EditEducation
+            education={this.props.education}
+            handleEducationChange={this.props.handleEducationChange}
+            handleAddEducation={this.props.handleAddEducation}
+          />
+          <EditExperience
+            experience={this.props.experience}
+            handleExperienceChange={this.props.handleExperienceChange}
+            handleAddExperience={this.props.handleAddExperience}
+          />
+          <EditSkills
+            skills={this.props.skills}
+            handleSkillsChange={this.props.handleSkillsChange}
+          />
+        </div>
       </div>
     );
   }

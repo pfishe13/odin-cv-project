@@ -5,14 +5,16 @@ class EditSkills extends Component {
   render() {
     return (
       <div>
+        <h1>Skills</h1>
+
         <form>
           <label>
-            Skills (Seperated by comma):
-            <input
+            List of skills (Seperated by comma):
+            <textarea
               name="skills"
               type="text"
               onChange={this.props.handleSkillsChange}
-            ></input>
+            ></textarea>
           </label>
         </form>
       </div>

@@ -17,6 +17,7 @@ const EditEducation = ({
 
   return (
     <div>
+      <h1>Education </h1>
       <div>{educationItems}</div>
       <button onClick={handleAddEducation}>Add education</button>
     </div>
