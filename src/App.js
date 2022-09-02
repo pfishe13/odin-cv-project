@@ -25,16 +25,23 @@ class App extends Component {
         yearStarted: '',
         yearEnded: '',
       },
+      experience: [
+        {
+          title: 'Sales Assistant',
+          company: '',
+          startDate: '',
+          endDate: '',
+          duties: '',
+          location: '',
+        },
+      ],
+      skills: [],
     };
-
-    this.handleProfileChange = this.handleProfileChange.bind(this);
-    // this.handleAddressChange = this.handleAddressChange.bind(this);
   }
 
   handleProfileChange = (e) => {
     const attributeToChange = e.target.name;
     const valueToChange = e.target.value;
-    // console.log(attributeToChange);
     this.setState((prevState) => ({
       profile: {
         ...prevState.profile,
@@ -46,7 +53,6 @@ class App extends Component {
   handleEducationChange = (e) => {
     const attributeToChange = e.target.name;
     const valueToChange = e.target.value;
-    // console.log(attributeToChange);
     this.setState((prevState) => ({
       education: {
         ...prevState.education,
@@ -55,38 +61,25 @@ class App extends Component {
     }));
   };
 
-  // handleAddressChange(e) {
-  //   this.setState((prevState) => ({
-  //     profile: {
-  //       name: this.state.profile.name,
-  //       address: e.target.value,
-  //     },
-  //   }));
-  // }
+  handleExperienceChange = (e, index) => {
+    console.log(index);
+    const attributeToChange = e.target.name;
+    const valueToChange = e.target.value;
+    this.setState((prevState) => ({
+      experience: {
+        ...prevState.experience,
+        [attributeToChange]: valueToChange,
+      },
+    }));
+  };
 
-  // handleCityChange = (e) => {
-  //   this.setState((prevState) => ({
-  //     profile: {
-  //       city: e.target.value,
-  //     },
-  //   }));
-  // };
-
-  // handleStateChange(e) {
-  //   this.setState((prevState) => ({
-  //     profile: {
-  //       state: e.target.value,
-  //     },
-  //   }));
-  // }
-
-  // handleZipChange(e) {
-  //   this.setState((prevState) => ({
-  //     profile: {
-  //       zip: e.target.value,
-  //     },
-  //   }));
-  // }
+  handleSkillsChange = (e) => {
+    const value = e.target.value;
+    const skillsArray = value.split(',');
+    this.setState((prevState) => ({
+      skills: [...skillsArray],
+    }));
+  };
 
   render() {
     return (
@@ -95,14 +88,20 @@ class App extends Component {
           <Edit
             profile={this.state.profile}
             education={this.state.education}
+            experience={this.state.experience}
+            skills={this.state.skills}
             handleProfileChange={this.handleProfileChange}
             handleEducationChange={this.handleEducationChange}
+            handleExperienceChange={this.handleExperienceChange}
+            handleSkillsChange={this.handleSkillsChange}
           />
         </div>
         <div className="right">
           <LivePreview
             profile={this.state.profile}
             education={this.state.education}
+            experience={this.state.experience}
+            skills={this.state.skills}
           />
         </div>
       </div>

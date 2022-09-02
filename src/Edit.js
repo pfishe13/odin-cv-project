@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import EditProfile from './Form/EditProfile';
 import EditEducation from './Form/EditEducation';
+import EditExperience from './Form/EditExperience';
+import EditSkills from './Form/EditSkills';
 
 class Edit extends Component {
   //   constructor(props) {
@@ -17,6 +19,14 @@ class Edit extends Component {
         <EditEducation
           education={this.props.education}
           handleEducationChange={this.props.handleEducationChange}
+        />
+        <EditExperience
+          experience={this.props.experience}
+          handleExperienceChange={this.props.handleExperienceChange}
+        />
+        <EditSkills
+          skills={this.props.skills}
+          handleSkillsChange={this.props.handleSkillsChange}
         />
       </div>
     );
