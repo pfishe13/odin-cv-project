@@ -17,14 +17,16 @@ class App extends Component {
         email: '',
         phone: '',
       },
-      education: {
-        school: '',
-        location: '',
-        degree: '',
-        gpa: '',
-        yearStarted: '',
-        yearEnded: '',
-      },
+      education: [
+        {
+          school: '',
+          location: '',
+          degree: '',
+          gpa: '',
+          yearStarted: '',
+          yearEnded: '',
+        },
+      ],
       experience: [
         {
           title: 'Sales Assistant',
@@ -50,26 +52,66 @@ class App extends Component {
     }));
   };
 
-  handleEducationChange = (e) => {
+  handleEducationChange = (e, index) => {
     const attributeToChange = e.target.name;
     const valueToChange = e.target.value;
+    this.setState((prevState) => {
+      const newEducation = prevState.education.map((item, id) => {
+        if (id === index) {
+          return { ...item, [attributeToChange]: valueToChange };
+        }
+        return item;
+      });
+      return { education: [...newEducation] };
+    });
+  };
+
+  handleAddEducation = (e) => {
     this.setState((prevState) => ({
-      education: {
+      education: [
         ...prevState.education,
-        [attributeToChange]: valueToChange,
-      },
+        {
+          school: '',
+          location: '',
+          degree: '',
+          gpa: '',
+          yearStarted: '',
+          yearEnded: '',
+        },
+      ],
     }));
   };
 
   handleExperienceChange = (e, index) => {
-    console.log(index);
     const attributeToChange = e.target.name;
     const valueToChange = e.target.value;
+
+    this.setState((prevState) => {
+      const newExperience = prevState.experience.map((item, id) => {
+        if (id === index) {
+          return { ...item, [attributeToChange]: valueToChange };
+        }
+        return item;
+      });
+      return { experience: [...newExperience] };
+    });
+
+    console.log(this.state.experience);
+  };
+
+  handleAddExperience = (e) => {
     this.setState((prevState) => ({
-      experience: {
+      experience: [
         ...prevState.experience,
-        [attributeToChange]: valueToChange,
-      },
+        {
+          title: 'Sales Assistant',
+          company: '',
+          startDate: '',
+          endDate: '',
+          duties: '',
+          location: '',
+        },
+      ],
     }));
   };
 
@@ -92,7 +134,9 @@ class App extends Component {
             skills={this.state.skills}
             handleProfileChange={this.handleProfileChange}
             handleEducationChange={this.handleEducationChange}
+            handleAddEducation={this.handleAddEducation}
             handleExperienceChange={this.handleExperienceChange}
+            handleAddExperience={this.handleAddExperience}
             handleSkillsChange={this.handleSkillsChange}
           />
         </div>

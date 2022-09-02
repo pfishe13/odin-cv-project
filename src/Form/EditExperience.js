@@ -1,8 +1,11 @@
 import React from 'react';
 import SingleExperience from './SingleExperience';
 
-const EditExperience = ({ experience, handleExperienceChange }) => {
-  console.log(experience);
+const EditExperience = ({
+  experience,
+  handleExperienceChange,
+  handleAddExperience,
+}) => {
   const experienceItems = experience.map((item, index) => (
     <SingleExperience
       key={index}
@@ -12,9 +15,12 @@ const EditExperience = ({ experience, handleExperienceChange }) => {
     />
   ));
 
-  console.log(experienceItems);
-
-  return <div>{experienceItems}</div>;
+  return (
+    <div>
+      <div>{experienceItems}</div>
+      <button onClick={handleAddExperience}>Add Experience</button>
+    </div>
+  );
 };
 
 export default EditExperience;

@@ -19,10 +19,12 @@ class Edit extends Component {
         <EditEducation
           education={this.props.education}
           handleEducationChange={this.props.handleEducationChange}
+          handleAddEducation={this.props.handleAddEducation}
         />
         <EditExperience
           experience={this.props.experience}
           handleExperienceChange={this.props.handleExperienceChange}
+          handleAddExperience={this.props.handleAddExperience}
         />
         <EditSkills
           skills={this.props.skills}
