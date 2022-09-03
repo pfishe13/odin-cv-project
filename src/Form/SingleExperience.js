@@ -80,6 +80,7 @@ class SingleExperience extends Component {
           </div>
         </form>
         <button
+          className="delete-button"
           onClick={(e) => this.props.handleDeleteExperience(e, this.props.id)}
         >
           Delete

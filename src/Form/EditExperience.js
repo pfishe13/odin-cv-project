@@ -27,9 +27,11 @@ const EditExperience = ({
   } else {
     return (
       <div>
-        <h1>Work Experience</h1>
+        <div className="add-button-container">
+          <h1>Work Experience</h1>
+          <button onClick={handleAddExperience}>Add</button>
+        </div>
         <div>{experienceItems}</div>
-        <button onClick={handleAddExperience}>Add</button>
       </div>
     );
   }

@@ -78,6 +78,7 @@ class SingleEducation extends Component {
           </label>
         </form>
         <button
+          className="delete-button"
           onClick={(e) => this.props.handleDeleteEducation(e, this.props.id)}
         >
           Delete
