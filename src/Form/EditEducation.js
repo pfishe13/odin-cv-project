@@ -5,6 +5,7 @@ const EditEducation = ({
   education,
   handleEducationChange,
   handleAddEducation,
+  handleDeleteEducation,
 }) => {
   const educationItems = education.map((item, index) => (
     <SingleEducation
@@ -12,16 +13,28 @@ const EditEducation = ({
       id={index}
       education={item}
       handleEducationChange={handleEducationChange}
+      handleDeleteEducation={handleDeleteEducation}
     />
   ));
 
-  return (
-    <div>
-      <h1>Education </h1>
-      <div>{educationItems}</div>
-      <button onClick={handleAddEducation}>Add education</button>
-    </div>
-  );
+  if (educationItems.length > 1) {
+    return (
+      <div>
+        <h1>Education </h1>
+        <div>{educationItems}</div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <div className="add-button-container">
+          <h1>Education </h1>
+          <button onClick={handleAddEducation}>Add</button>
+        </div>
+        <div>{educationItems}</div>
+      </div>
+    );
+  }
 };
 
 export default EditEducation;

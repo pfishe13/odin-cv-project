@@ -77,6 +77,11 @@ class SingleEducation extends Component {
             ></input>
           </label>
         </form>
+        <button
+          onClick={(e) => this.props.handleDeleteEducation(e, this.props.id)}
+        >
+          Delete
+        </button>
       </div>
     );
   }

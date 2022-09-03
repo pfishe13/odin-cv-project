@@ -9,34 +9,32 @@ class App extends Component {
 
     this.state = {
       profile: {
-        name: 'Parker Fisher',
-        address: '951 Newport Rd.',
-        city: 'Akron',
-        state: 'OH',
-        zip: '44303',
-        email: 'pfishe@kent.edu',
-        phone: '3308424030',
+        name: 'First Last',
+        address: '123 ABC St.',
+        city: 'City',
+        state: 'State',
+        zip: '12345',
+        email: 'email@email.com',
+        phone: '123-456-7890',
       },
       education: [
         {
-          school: 'Kent State University',
-          location: 'Kent, OH',
-          degree: '',
-          gpa: '',
-          yearStarted: '',
-          yearEnded: '',
+          school: 'My University',
+          location: 'City, State',
+          degree: 'Degree',
+          gpa: 'G.PA',
+          yearStarted: 'XXXX',
+          yearEnded: 'XXXX',
         },
       ],
       experience: [
         {
-          title: 'Sales Assistant',
-          company: 'Fat Ts',
-          startDate: 'May 2020',
-          endDate: 'Present',
-          duties: [
-            'Test, i do some cool stuff fjfjjfjfjfjfjfjjffjfjfjfjfjfjfjfjfjfjfjfffhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhhfhfhfhhfhfbfbfbfbfbfbbfbffbfffbfbfbbfbfbf',
-          ],
-          location: 'Akron, OH',
+          title: 'My Position Title',
+          company: 'My Company',
+          startDate: 'XXXX',
+          endDate: 'XXXX',
+          duties: ['What do I do?'],
+          location: 'City, State',
         },
       ],
       skills: [],
@@ -84,6 +82,17 @@ class App extends Component {
     }));
   };
 
+  handleDeleteEducation = (e, index) => {
+    this.setState((prevState) => {
+      const newEducation = prevState.education.filter((item, id) => {
+        return id !== index;
+      });
+      return { education: [...newEducation] };
+    });
+
+    console.log(this.state.education);
+  };
+
   handleExperienceChange = (e, index) => {
     const attributeToChange = e.target.name;
     let valueToChange = e.target.value;
@@ -125,8 +134,6 @@ class App extends Component {
   };
 
   handleDeleteExperience = (e, index) => {
-    console.log(e);
-    console.log('In delete');
     this.setState((prevState) => {
       const newExperience = prevState.experience.filter((item, id) => {
         return id !== index;
@@ -157,6 +164,7 @@ class App extends Component {
             handleProfileChange={this.handleProfileChange}
             handleEducationChange={this.handleEducationChange}
             handleAddEducation={this.handleAddEducation}
+            handleDeleteEducation={this.handleDeleteEducation}
             handleExperienceChange={this.handleExperienceChange}
             handleDeleteExperience={this.handleDeleteExperience}
             handleAddExperience={this.handleAddExperience}
