@@ -13,12 +13,11 @@ class Skills extends Component {
         <hr />
         <h1 className="section-header">Skills</h1>
         <hr />
-
-        <ul>
+        <div className="skills-list">
           {skillArray.map((skill, index) => {
-            return <li key={index}>{skill}</li>;
+            return <span key={index}>{skill}</span>;
           })}
-        </ul>
+        </div>
       </div>
     );
   }

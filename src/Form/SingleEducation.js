@@ -55,7 +55,7 @@ class SingleEducation extends Component {
             </label>
           </div>
           <label>
-            Year Started:
+            Month, Year Started:
             <input
               name="yearStarted"
               type="text"
@@ -66,7 +66,7 @@ class SingleEducation extends Component {
             ></input>
           </label>
           <label>
-            Year Ended:
+            Month, Year Ended:
             <input
               name="yearEnded"
               type="text"

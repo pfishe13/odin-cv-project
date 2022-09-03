@@ -7,7 +7,7 @@ class SingleExperience extends Component {
       <div>
         <form>
           <label>
-            title:
+            Title:
             <input
               name="title"
               type="text"
@@ -19,7 +19,7 @@ class SingleExperience extends Component {
           </label>
           <div>
             <label>
-              company:
+              Company:
               <input
                 name="company"
                 type="text"
@@ -43,7 +43,7 @@ class SingleExperience extends Component {
           </div>
           <div>
             <label>
-              startDate:
+              Start Date:
               <input
                 name="startDate"
                 type="text"
@@ -54,7 +54,7 @@ class SingleExperience extends Component {
               ></input>
             </label>
             <label>
-              endDate:
+              End Date:
               <input
                 name="endDate"
                 type="text"
@@ -67,11 +67,11 @@ class SingleExperience extends Component {
           </div>
           <div>
             <label>
-              Duties:
+              Duties (Put each duty on a new line):
               <textarea
                 name="duties"
                 type="text"
-                value={this.props.experience.duties}
+                value={this.props.experience.duties.join('\n')}
                 onChange={(e) =>
                   this.props.handleExperienceChange(e, this.props.id)
                 }
@@ -79,6 +79,11 @@ class SingleExperience extends Component {
             </label>
           </div>
         </form>
+        <button
+          onClick={(e) => this.props.handleDeleteExperience(e, this.props.id)}
+        >
+          Delete
+        </button>
       </div>
     );
   }

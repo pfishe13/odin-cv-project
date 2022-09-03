@@ -5,6 +5,7 @@ const EditExperience = ({
   experience,
   handleExperienceChange,
   handleAddExperience,
+  handleDeleteExperience,
 }) => {
   const experienceItems = experience.map((item, index) => (
     <SingleExperience
@@ -12,16 +13,26 @@ const EditExperience = ({
       id={index}
       experience={item}
       handleExperienceChange={handleExperienceChange}
+      handleDeleteExperience={handleDeleteExperience}
     />
   ));
 
-  return (
-    <div>
-      <h1>Work Experience</h1>
-      <div>{experienceItems}</div>
-      <button onClick={handleAddExperience}>Add Experience</button>
-    </div>
-  );
+  if (experienceItems.length > 2) {
+    return (
+      <div>
+        <h1>Work Experience</h1>
+        <div>{experienceItems}</div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Work Experience</h1>
+        <div>{experienceItems}</div>
+        <button onClick={handleAddExperience}>Add Experience</button>
+      </div>
+    );
+  }
 };
 
 export default EditExperience;

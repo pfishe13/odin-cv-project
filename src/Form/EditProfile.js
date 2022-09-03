@@ -54,6 +54,25 @@ class EditProfile extends Component {
               onChange={this.props.handleProfileChange}
             ></input>
           </label>
+          <label>
+            Email:
+            <input
+              name="email"
+              type="email"
+              value={this.props.profile.email}
+              onChange={this.props.handleProfileChange}
+            ></input>
+          </label>
+          <label>
+            Phone Number:
+            <input
+              name="phone"
+              type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              value={this.props.profile.phone}
+              onChange={this.props.handleProfileChange}
+            ></input>
+          </label>
         </form>
       </div>
     );

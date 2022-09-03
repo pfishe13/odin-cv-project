@@ -33,6 +33,7 @@ class Edit extends Component {
             experience={this.props.experience}
             handleExperienceChange={this.props.handleExperienceChange}
             handleAddExperience={this.props.handleAddExperience}
+            handleDeleteExperience={this.props.handleDeleteExperience}
           />
           <EditSkills
             skills={this.props.skills}

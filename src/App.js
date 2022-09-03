@@ -33,7 +33,9 @@ class App extends Component {
           company: 'Fat Ts',
           startDate: 'May 2020',
           endDate: 'Present',
-          duties: ['Bake Cookies'],
+          duties: [
+            'Test, i do some cool stuff fjfjjfjfjfjfjfjjffjfjfjfjfjfjfjfjfjfjfjfffhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhhfhfhfhhfhfbfbfbfbfbfbbfbffbfffbfbfbbfbfbf',
+          ],
           location: 'Akron, OH',
         },
       ],
@@ -87,7 +89,7 @@ class App extends Component {
     let valueToChange = e.target.value;
     let dutiesArray;
     if (attributeToChange === 'duties') {
-      dutiesArray = valueToChange.split(',');
+      dutiesArray = valueToChange.split('\n');
       valueToChange = [...dutiesArray];
     }
 
@@ -122,6 +124,19 @@ class App extends Component {
     }));
   };
 
+  handleDeleteExperience = (e, index) => {
+    console.log(e);
+    console.log('In delete');
+    this.setState((prevState) => {
+      const newExperience = prevState.experience.filter((item, id) => {
+        return id !== index;
+      });
+      return { experience: [...newExperience] };
+    });
+
+    console.log(this.state.experience);
+  };
+
   handleSkillsChange = (e) => {
     const value = e.target.value;
     const skillsArray = value.split(',');
@@ -143,6 +158,7 @@ class App extends Component {
             handleEducationChange={this.handleEducationChange}
             handleAddEducation={this.handleAddEducation}
             handleExperienceChange={this.handleExperienceChange}
+            handleDeleteExperience={this.handleDeleteExperience}
             handleAddExperience={this.handleAddExperience}
             handleSkillsChange={this.handleSkillsChange}
           />
