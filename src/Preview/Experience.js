@@ -4,6 +4,8 @@ class Experience extends Component {
   state = {};
   render() {
     const experience = this.props.experience;
+
+    if (experience.length === 0) return;
     return (
       <div className="section-container">
         <hr />

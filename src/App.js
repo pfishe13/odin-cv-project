@@ -18,24 +18,32 @@ class App extends Component {
         phone: '123-456-7890',
       },
       education: [
-        {
-          school: 'My University',
-          location: 'City, State',
-          degree: 'Degree',
-          gpa: 'G.PA',
-          yearStarted: 'XXXX',
-          yearEnded: 'XXXX',
-        },
+        // {
+        //   school: 'My University',
+        //   location: 'City, State',
+        //   degree: 'Degree',
+        //   gpa: 'G.PA',
+        //   yearStarted: 'XXXX',
+        //   yearEnded: 'XXXX',
+        // },
+      ],
+      projects: [
+        // {
+        //   name: 'Project Name',
+        //   link: 'test link',
+        //   description: ['It does some cool things'],
+        //   date: 'XXXX',
+        // },
       ],
       experience: [
-        {
-          title: 'My Position Title',
-          company: 'My Company',
-          startDate: 'XXXX',
-          endDate: 'XXXX',
-          duties: ['What do I do?'],
-          location: 'City, State',
-        },
+        // {
+        //   title: 'My Position Title',
+        //   company: 'My Company',
+        //   startDate: 'XXXX',
+        //   endDate: 'XXXX',
+        //   duties: ['What do I do?'],
+        //   location: 'City, State',
+        // },
       ],
       skills: [],
     };
@@ -89,8 +97,6 @@ class App extends Component {
       });
       return { education: [...newEducation] };
     });
-
-    console.log(this.state.education);
   };
 
   handleExperienceChange = (e, index) => {
@@ -102,8 +108,6 @@ class App extends Component {
       valueToChange = [...dutiesArray];
     }
 
-    console.log(dutiesArray);
-
     this.setState((prevState) => {
       const newExperience = prevState.experience.map((item, id) => {
         if (id === index) {
@@ -113,8 +117,6 @@ class App extends Component {
       });
       return { experience: [...newExperience] };
     });
-
-    console.log(this.state.experience);
   };
 
   handleAddExperience = (e) => {
@@ -122,7 +124,7 @@ class App extends Component {
       experience: [
         ...prevState.experience,
         {
-          title: 'Sales Assistant',
+          title: '',
           company: '',
           startDate: '',
           endDate: '',
@@ -140,8 +142,48 @@ class App extends Component {
       });
       return { experience: [...newExperience] };
     });
+  };
 
-    console.log(this.state.experience);
+  handleProjectChange = (e, index) => {
+    const attributeToChange = e.target.name;
+    let valueToChange = e.target.value;
+    let descriptionArray;
+    if (attributeToChange === 'description') {
+      descriptionArray = valueToChange.split('\n');
+      valueToChange = [...descriptionArray];
+    }
+    this.setState((prevState) => {
+      const newProjects = prevState.projects.map((item, id) => {
+        if (id === index) {
+          return { ...item, [attributeToChange]: valueToChange };
+        }
+        return item;
+      });
+      return { projects: [...newProjects] };
+    });
+  };
+
+  handleAddProject = (e) => {
+    this.setState((prevState) => ({
+      projects: [
+        ...prevState.projects,
+        {
+          name: '',
+          link: '',
+          description: [''],
+          date: '',
+        },
+      ],
+    }));
+  };
+
+  handleDeleteProject = (e, index) => {
+    this.setState((prevState) => {
+      const newProjects = prevState.projects.filter((item, id) => {
+        return id !== index;
+      });
+      return { projects: [...newProjects] };
+    });
   };
 
   handleSkillsChange = (e) => {
@@ -160,6 +202,7 @@ class App extends Component {
             profile={this.state.profile}
             education={this.state.education}
             experience={this.state.experience}
+            projects={this.state.projects}
             skills={this.state.skills}
             handleProfileChange={this.handleProfileChange}
             handleEducationChange={this.handleEducationChange}
@@ -168,6 +211,9 @@ class App extends Component {
             handleExperienceChange={this.handleExperienceChange}
             handleDeleteExperience={this.handleDeleteExperience}
             handleAddExperience={this.handleAddExperience}
+            handleAddProject={this.handleAddProject}
+            handleProjectChange={this.handleProjectChange}
+            handleDeleteProject={this.handleDeleteProject}
             handleSkillsChange={this.handleSkillsChange}
           />
         </div>
@@ -177,6 +223,7 @@ class App extends Component {
               profile={this.state.profile}
               education={this.state.education}
               experience={this.state.experience}
+              projects={this.state.projects}
               skills={this.state.skills}
             />
           </div>

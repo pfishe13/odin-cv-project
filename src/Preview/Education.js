@@ -4,6 +4,8 @@ class Education extends Component {
   state = {};
   render() {
     const education = this.props.education;
+
+    if (education.length === 0) return;
     return (
       <div className="section-container">
         <hr />

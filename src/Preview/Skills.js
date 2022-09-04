@@ -6,8 +6,10 @@ class Skills extends Component {
 
     this.state = {};
   }
+
   render() {
     const skillArray = this.props.skills;
+    if (skillArray.length === 0) return;
     return (
       <div className="section-container">
         <hr />

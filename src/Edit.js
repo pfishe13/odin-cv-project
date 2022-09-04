@@ -3,6 +3,7 @@ import EditProfile from './Form/EditProfile';
 import EditEducation from './Form/EditEducation';
 import EditExperience from './Form/EditExperience';
 import EditSkills from './Form/EditSkills';
+import EditProjects from './Form/EditProject';
 
 class Edit extends Component {
   //   constructor(props) {
@@ -29,6 +30,12 @@ class Edit extends Component {
             handleEducationChange={this.props.handleEducationChange}
             handleAddEducation={this.props.handleAddEducation}
             handleDeleteEducation={this.props.handleDeleteEducation}
+          />
+          <EditProjects
+            projects={this.props.projects}
+            handleProjectChange={this.props.handleProjectChange}
+            handleAddProject={this.props.handleAddProject}
+            handleDeleteProject={this.props.handleDeleteProject}
           />
           <EditExperience
             experience={this.props.experience}
